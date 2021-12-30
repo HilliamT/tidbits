@@ -1,8 +1,8 @@
-# Conventions
+# Tidbits
 
-*Tips, tricks, and tidbits I've picked up from working with different tech that I would not like to lose if I had amnesia*
+*Helpful pieces of interesting information I've picked up from working on different projects*
 
 <hr>
 
 ## Contents
-- [🦊 GitLab CI](https://github.com/HilliamT/amnesia-proofed/blob/master/gitlab-ci.md)
+- [🦊 GitLab CI](https://github.com/HilliamT/tidbits/blob/master/gitlab-ci.md)
