@@ -94,6 +94,6 @@ const user = await prisma.user.upsert({
 // do something with the user object...
 ```
 
-This eliminates the race condition.
+This eliminates the race condition, whilst ensuring that there is a user record within the database. No updates will be made to the user database record if it already exists.
 
 [🔗 Source: Create if not exists · Discussion #5815 · prisma/prisma](https://github.com/prisma/prisma/discussions/5815#discussioncomment-404334)
