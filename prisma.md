@@ -2,13 +2,14 @@
 
 ## Overview
 - [Create If Not Exists](#create-if-not-exists)
+    - [Native CRUD Functions](#native-crud-functions)
     - [Interactive Transactions](#interactive-transactions)
     - [Upsert in One](#upsert-in-one)
 
 
 ## Create If Not Exists
 
-### Native CRUD functions
+### Native CRUD Functions
 Creating a database record only if it doesn't exist already is a functionality that may be useful in some cases. For example, if a user has yet to log in before performing a certain action, we can create a new user record in the database on the fly rather than having a separate hook for this.
 
 ```typescript
