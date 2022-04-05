@@ -147,3 +147,32 @@ Though more time will be spent installing the dependencies and preparing the on 
 A pipeline I worked on that previously ran at a consistent `9 minutes` always re-installing dependencies was able to be brought down to just under `5 minutes` on each cached commit. The time spent for the initial commit whenever a package was changed was around `11 minutes`, so the benefits were very much immediate after 2 commits on a new branch.
 
 [🔗 Source: How to Speed Up Your GitLab CI Pipelines for Node Apps by 40%](https://www.addthis.com/blog/2019/05/06/how-to-speed-up-your-gitlab-ci-pipelines-for-node-apps-by-40/#.YRYSGC2ZPEY)
+
+## Integration Testing with a Postgres Test Database
+Integration testing can ensure that your application is configured correctly with the database as it is used with different queries.
+
+For example, to check that [Prisma](https://prisma.io/) is correctly configured to a Postgres database, you may use integration testing that does not mock database connections. You can then run your mutations against your database to test for validation checks. As you don't want to use an actual Postgres database due to the cost, you can use a test database that is created and used just for testing within GitLab CI.
+
+```yaml
+# Create a test postgres database 
+services:
+    - postgres:latest
+    - ...
+
+# Set database variables for connection
+variables:
+    POSTGRES_DB: postgres
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: password
+    POSTGRES_HOST: postgres
+
+test:
+    stage: test
+    variables:
+        # Environment variable to set in Prisma for the location of the database to use
+        DATABASE_URL: postgres://${POSTGRES_HOST}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}
+    script:
+        - ...
+```
+
+[🔗 Source: Using PostgreSQL | GitLab](https://docs.gitlab.com/ee/ci/services/postgres.html)
