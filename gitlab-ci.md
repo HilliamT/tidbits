@@ -4,6 +4,7 @@
 - [Caching Dependencies with GitLab](#caching-dependencies-with-gitlab)
     - [Utilising Artifacts and Dependencies](#utilising-artifacts-and-dependencies)
     - [Caching Dependencies on a Per-Branch Basis](#caching-dependencies-on-a-per-branch-basis)
+- [Integration Testing with a Postgres Test Database](#integration-testing-with-a-postgres-test-database)
 
 ## Caching Dependencies with GitLab
 Running `npm install` can take a long time, especially if you are installing a lot of packages. If a pipeline has to do this every time, it can slow down the build and deploy process as a whole.
